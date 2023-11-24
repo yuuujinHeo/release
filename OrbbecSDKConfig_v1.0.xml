@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+    <!-- 配置文件标准版本号，非SDK开发人员请勿修改，否则可能会导致配置功能失效-->
+    <ConfigStandardVersion>1.1</ConfigStandardVersion>
+
+    <Log>
+        <!--默认日志输出等级，int类型，可选值:0-DEBUG，1-INFO，2-WARN，3-ERROR，4-FATAL，5-NONE-->
+        <LogLevel>0</LogLevel>
+        <!--默认日志输出文件路径，string类型-->
+        <OutPutDir>./Log</OutPutDir>
+    </Log>
+
+	<Memory>
+		<!--数据帧最大缓存空间大小，int类型，单位MB，最小100MB, 所有帧共用-->
+		<MaxFrameBufferSize> 2048 </MaxFrameBufferSize>
+		<!--高级模式下帧缓存队列的大小-->
+        <PipelineFrameQueueSize>10</PipelineFrameQueueSize>
+        <!--内部处理单元帧缓存队列的大小-->
+        <FrameProcessingBlockQueueSize>10</FrameProcessingBlockQueueSize>
+	</Memory>
+
+    <!--高级模式Pipeline默认工作配置-->
+    <Pipeline>
+        <Stream>
+            <Depth>
+                <!--使用默认流配置，bool类型，true-使用默认流配置，false-使用默认流配置(需要在配置文件指定)-->
+                <UseDefaultStreamProfile>true</UseDefaultStreamProfile>
+            </Depth>
+            <Color>
+                <!--不使用默认流配置, 按照指定配置开流，如果指定配置不支持，则使用支持的流配置列表第一项-->
+                <UseDefaultStreamProfile>true</UseDefaultStreamProfile>
+                <![CDATA[
+                <!--分辨率的宽，int类型-->
+                <Width>1920</Width>
+                <!--分辨率的高，int类型-->
+                <Height>1080</Height>
+                <!--帧率，int类型-->
+                <FPS>30</FPS>
+                <!--帧格式-->
+                <Format>MJPG</Format>
+                ]]>
+            </Color>
+            <!--如果还需要开启其他流，可参考上面格式添加配置-->
+        </Stream>
+        <!--图像对齐，int类型，可选值:0-禁用，1-硬件D2C对齐，2-软件D2C对齐-->
+        <AlignMode>0</AlignMode>
+        <!--不同数据流间帧同步输出，bool类型，true-开启帧同步, false-关闭帧同步-->
+        <FrameSync>false</FrameSync>
+    </Pipeline>
+
+    <!--不同类型设备各数据流默认配置-->
+    <Device>
+        <GeminiE>
+            <Depth>
+                <!--默认分辨率的宽，int类型-->
+                <Width>320</Width>
+                <!--默认分辨率的高，int类型-->
+                <Height>180</Height>
+                <!--默认帧率，int类型-->
+                <FPS>10</FPS>
+                <!--默认帧格式-->
+                <Format>Y11</Format>
+                <!--开流失败后是否需要进行重试，0-不重试，>=1-重试并重试多少次-->
+				<StreamFailedRetry>0</StreamFailedRetry>
+            </Depth>
+            <Color>
+                <!--默认分辨率的宽，int类型-->
+                <Width>320</Width>
+                <!--默认分辨率的高，int类型-->
+                <Height>180</Height>
+                <!--默认帧率，int类型-->
+                <FPS>10</FPS>
+                <!--默认帧格式-->
+                <Format>MJPG</Format>
+                <!--开流失败后是否需要进行重试，0-不重试，>=1-重试并重试多少次-->
+				<StreamFailedRetry>0</StreamFailedRetry>
+            </Color>
+            <IR>
+                <!--默认分辨率的宽，int类型-->
+                <Width>640</Width>
+                <!--默认分辨率的高，int类型-->
+                <Height>480</Height>
+                <!--默认帧率，int类型-->
+                <FPS>30</FPS>
+                <!--默认帧格式-->
+                <Format>Y10</Format>
+                <!--开流失败后是否需要进行重试，0-不重试，>=1-重试并重试多少次-->
+				<StreamFailedRetry>0</StreamFailedRetry>
+            </IR>
+        </GeminiE>
+    </Device>
+</Config>
