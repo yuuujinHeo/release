@@ -15,5 +15,16 @@ pip3 install gtts
 # sudo apt install gstreamer1.0-libav gstreamer1.0-vaapi ubuntu-restricted-extras -y
 sudo DEBIAN_FRONTEND=noninteractive apt install gstreamer1.0-libav gstreamer1.0-vaapi ubuntu-restricted-extras -y --no-install-recommends
 
+# release 폴더에서 sh 폴더로 autostart.sh 파일 교체
+sudo cp ~/RB_MOBILE/release/autostart.sh ~/RB_MOBILE/sh/autostart.sh
+
+echo "autostart.sh has been updated from release to sh folder."
+
+# release 폴더에서 autostart.sh 파일 삭제
+sudo rm ~/RB_MOBILE/release/autostart.sh
+
+echo "Original autostart.sh from release folder has been deleted."
+
 # 스크립트 실행 후 srv-update 파일 삭제
 sudo rm "$0"
+
