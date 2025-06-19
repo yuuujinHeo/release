@@ -14,3 +14,12 @@ https://github.com/RBmobile23/mobile_slamnav2D
 ### 업데이트
 https://github.com/SimonLee9/RB_update
  ### update_srv.sh
+----
+
+## 25.06.19 S1002SRV 명시 내역
+
+### UI 동작을 위한 추가 설치
+sudo apt-get install qml-module-qtquick-dialogs
+
+### bashrc 경로 설정
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/rainbow/OrbbecSDK/lib/linux_x64
